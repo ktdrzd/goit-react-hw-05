@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchById } from '../api';
 import { FaHome } from "react-icons/fa";
-import { MovieDetailsTitle } from '../components/MovieDetailsItem/MovieDetailsItem';
+import { MovieDetailsItem } from '../components/MovieDetailsItem/MovieDetailsItem';
 // import clsx from 'clsx';
 import {Loader} from "../components/Loader/Loader";
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
@@ -36,7 +36,7 @@ const MovieDetailsPage = () => {
   return (
     <main>
       <Link to={backInLocation}><FaHome/></Link>
-      {dataById && <MovieDetailsTitle data={dataById} />}
+      {dataById && <MovieDetailsItem data={dataById} />}
       <div>
         <NavLink to={'cast'} state={{ from: location.state?.from }}>
           Cast
