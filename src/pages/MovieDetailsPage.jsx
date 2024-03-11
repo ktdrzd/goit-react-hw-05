@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
-import { fetchById } from '../api';
+import { fetchByID } from '../api';
 import { FaHome } from "react-icons/fa";
 import { MovieDetailsItem } from '../components/MovieDetailsItem/MovieDetailsItem';
 // import clsx from 'clsx';
@@ -21,7 +21,7 @@ const MovieDetailsPage = () => {
     const fetchDataById = async () => {
       try {
         setLoader(true);
-        const data = await fetchById(id);
+        const data = await fetchByID(id);
         setDataById(data);
       } catch (error) {
         console.log(error);

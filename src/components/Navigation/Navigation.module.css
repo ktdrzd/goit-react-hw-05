@@ -1,0 +1,24 @@
+.nav {
+    display: flex;
+    gap: 10px;
+    font-size: 34px;
+    background-color: #8B0000;
+    padding: 30px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.link {
+    text-decoration: none;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.active {
+    color: #8B0000;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 10px;
+}

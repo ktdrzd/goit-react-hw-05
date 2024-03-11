@@ -7,7 +7,7 @@ import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { MovieCastItem } from '../MovieCastItem/MovieCastItem';
 
 const MovieCast = () => {
-  const { id } = useParams();
+  const { movieId } = useParams();
   const [ loader, setLoader ] = useState(false);
   const [ error, setError ] = useState(false);
   const [ cast, setCast ] = useState([]);
@@ -17,9 +17,9 @@ const MovieCast = () => {
     setError(false);
     setCast([]);
 
-    const getRewiews = async () => {
+    const getCast = async () => {
       try {
-        const response = await fetchInfo(id, 'credis');
+        const response = await fetchInfo(movieId, 'credits');
         setCast(response.cast);
       } catch (error) {
         console.log(error);
@@ -28,8 +28,8 @@ const MovieCast = () => {
         setLoader(false);
       }
     };
-    getRewiews();
-  }, [id]);
+    getCast();
+  }, [movieId]);
   return (
     <>
       <ul>

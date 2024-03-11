@@ -14,8 +14,8 @@ export const MovieDetailsItem = ({
         </h2>
         <ul>
           <li>
-            <h3>Overwiew</h3>
-            <p>{overview || 'Приносимо вибачення, але опису ще немає'}</p>
+            <h3>Overwiew: </h3>
+            <p>{overview || 'We apologize, but rhere is no description yet'}</p>
           </li>
           <li>
             <h3>Genres: </h3>

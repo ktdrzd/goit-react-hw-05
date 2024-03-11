@@ -7,17 +7,17 @@ const MovieCast = lazy(() => import('./components/MovieCast/MovieCast'));
 const Home = lazy(() => import('./pages/HomePage'));
 const Movies = lazy(() => import('./pages/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
-const AppBar = lazy(() => import('./components/AppBar/AppBar'));
+const Navigation = lazy(() => import('./components/Navigation/Navigation'));
 
 function App() {
   return (
     <>
-      <AppBar />
+      <Navigation />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/movies" element={<Movies />}></Route>
-            <Route path="/movies/:id" element={<MovieDetailsPage />}>
+            <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
               <Route path="cast" element={<MovieCast />}></Route>
               <Route path="reviews" element={<MovieReviews />}></Route>
             </Route>
