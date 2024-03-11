@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchInfo } from '../../api';
 import { Loader } from '../Loader/Loader';
-// import css from "./MovieCast.module.css";
+import css from "./MovieCast.module.css";
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { MovieCastItem } from '../MovieCastItem/MovieCastItem';
 
@@ -32,11 +32,11 @@ const MovieCast = () => {
   }, [movieId]);
   return (
     <>
-      <ul>
+      <ul className={css.list}>
         {cast.length > 0 &&
           cast.map(item => {
             return (
-              <li key={item.id}>
+              <li key={item.id} className={css.item}>
                 <MovieCastItem data={item} />
               </li>
             );

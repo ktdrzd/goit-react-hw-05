@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-// import css from "./MovieReviews.module.css";
+import css from "./MovieReviews.module.css";
 import { useEffect, useState } from 'react';
 import { Loader } from '../Loader/Loader';
 import { fetchInfo } from '../../api';
@@ -32,7 +32,7 @@ const MovieReviews = () => {
 
   return (
     <>
-      <ul>
+      <ul className={css.list}>
         {reviews.length > 0 &&
         reviews.map((item) => {
           return (

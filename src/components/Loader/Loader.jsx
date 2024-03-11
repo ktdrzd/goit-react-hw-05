@@ -1,16 +1,18 @@
-import { Vortex } from 'react-loader-spinner';
+import { MutatingDots } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (
     <div>
-      <Vortex
+      <MutatingDots
         visible={true}
-        height="300"
-        width="300"
-        ariaLabel="vortex-loading"
+        height="200"
+        width="200"
+        color="#fff"
+        secondaryColor="#fff"
+        radius="12.5"
+        ariaLabel="mutating-dots-loading"
         wrapperStyle={{}}
-        wrapperClass="vortex-wrapper"
-        colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+        wrapperClass=""
       />
     </div>
   );

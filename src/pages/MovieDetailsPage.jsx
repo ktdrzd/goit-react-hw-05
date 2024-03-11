@@ -6,9 +6,10 @@ import { MovieDetailsItem } from '../components/MovieDetailsItem/MovieDetailsIte
 // import clsx from 'clsx';
 import {Loader} from "../components/Loader/Loader";
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
+import css from "../pages/MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-  const { id } = useParams();
+  const { movieId } = useParams();
   const [dataById, setDataById] = useState({});
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
@@ -16,12 +17,12 @@ const MovieDetailsPage = () => {
   const backInLocation = location.state?.from ?? '/';
 
   useEffect(() => {
-    if (!id) return;
+    if (!movieId) return;
     setError(false);
     const fetchDataById = async () => {
       try {
         setLoader(true);
-        const data = await fetchByID(id);
+        const data = await fetchByID(movieId);
         setDataById(data);
       } catch (error) {
         console.log(error);
@@ -31,18 +32,20 @@ const MovieDetailsPage = () => {
       }
     };
     fetchDataById();
-  }, [id]);
+  }, [movieId]);
 
   return (
-    <main>
-      <Link to={backInLocation}><FaHome/></Link>
+    <main className={css.main}>
+      <div className={css.cont}>
+      <Link to={backInLocation} className={css.home}><FaHome/></Link>
       {dataById && <MovieDetailsItem data={dataById} />}
-      <div>
-        <NavLink to={'cast'} state={{ from: location.state?.from }}>
-          Cast
+      </div>
+      <div className={css.links}>
+        <NavLink to={'cast'} state={{ from: location.state?.from }} className={css.item}>
+          | Cast |
         </NavLink>
-        <NavLink to={'reviews'} state={{ from: location.state?.from }}>
-            Reviews
+        <NavLink to={'reviews'} state={{ from: location.state?.from }} className={css.item}>
+          | Reviews |
         </NavLink>
       </div>
       <Outlet/>
